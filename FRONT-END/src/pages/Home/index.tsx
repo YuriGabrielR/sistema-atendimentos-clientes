@@ -1,37 +1,32 @@
 import { useState } from "react";
-import { Container, Form, Label } from "./styles";
+import { Login } from "../Forms/Login";
+import { Container } from "./styles";
+import { Register } from "../Forms/Register";
 
 
 export default function Home() {
+  const [isLogin, setIsLogin] = useState(true); 
 
-  const [isLogin, setIsLogin] = useState<boolean>(true);
-  const [isRegister, setIsRegister] = useState<boolean>(false);
+  const toggleForm:()=>void = () =>{
+
+    setIsLogin(!isLogin); 
+
+  }; 
   
-
   return (
+    
     <Container>
-      <Form >
-        <h2>{isLogin ? 'Login' : 'Registrar'}</h2>
 
-        <Label isVisible={isRegister} htmlFor="user">
-          Usuário: 
-          <input id='user' type="text" />
-        </Label>
-
-        <Label isVisible={isLogin} htmlFor="email">
-          Email: 
-          <input id='email' type="email" />
-        </Label>
-
-
-        <Label isVisible={isLogin} htmlFor="password">
-          Senha: 
-          <input id='password' type="password" />
-        </Label>
-         
-      
-      </Form>
+      {
+        isLogin ?   
+        <Login toggleForm={toggleForm}/> 
+        : 
+        <Register toggleForm={toggleForm} />
+        
+      }
+       
+  
     </Container>
-   
+    
   )
 }
