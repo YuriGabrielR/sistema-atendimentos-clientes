@@ -48,16 +48,17 @@ p{
         font-weight:600;
         border-bottom: 1px solid blue;
         color: blue; 
-        
     }
 }
 
+
+@media (max-width: 412px) {
+    width:300px;
+}
 `;
 
 export const FieldArea = styled.div`
-
 display:flex; 
 flex-direction:column;
 gap:8px; 
-
 `;
