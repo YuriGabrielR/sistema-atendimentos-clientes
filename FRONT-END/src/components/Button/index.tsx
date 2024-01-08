@@ -3,7 +3,7 @@ import { ButtonForm, propsButton } from "./styles"
 export const Button = ({text}: propsButton) => {
   return (
 
-   <ButtonForm>
+   <ButtonForm type="submit">
     
    <p>{text}</p>
 

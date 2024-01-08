@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
-export const Form = styled.form`
+type formProps ={
+    $height: string | boolean;
+}
+
+export const Form = styled.form<Partial<formProps>>`
 display:flex; 
 flex-direction:column;
 gap:14px;
 width:400px; 
-height:350px;
+height:${(({$height})=> $height ? '430px' : "350px")};
 border-radius:20px; 
 background-color:#ffffffc4;
 box-shadow: rgba(0, 0, 0, 0.17) 0px 0px 56px -8px; 
@@ -48,6 +52,14 @@ p{
         font-weight:600;
         border-bottom: 1px solid blue;
         color: blue; 
+    }
+}
+
+span{
+    p{
+    font-size: 14px; 
+    font-family: 'Montserrat', sans-serif;
+    color: red;
     }
 }
 
